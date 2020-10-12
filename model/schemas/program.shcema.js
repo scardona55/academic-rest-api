@@ -3,31 +3,27 @@ const mongoose = require("mongoose");
 const validator = require("mongoose-unique-validator");
 
 /**Schema creation */
-const studentSchema = new mongoose.Schema({
+const programSchema = new mongoose.Schema({
     code:{
-        type: "String",
-        required: true,
-        unique:true
-    },
-    name:{
         type:"String",
         required: true,
-    },
-    lastname:{
-        type: "String",
-        require: true
-    },
-    email:{
-        type: "String",
-        require: true,
         unique: true
     },
-    phone:{
+    name:{
         type: "String",
         require: true
+    },
+    nomdirector:{
+        type: "String",
+        require: true,
+    },
+    idprogram:{
+        type: "Number",
+        required: true,
+        unique: true
     }
 });
 
 /**Schema exportation */
-studentSchema.plugin(validator);
-module.exports = studentSchema;
+programSchema.plugin(validator);
+module.exports = programSchema;
